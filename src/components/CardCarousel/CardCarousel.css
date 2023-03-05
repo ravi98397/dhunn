@@ -1,0 +1,65 @@
+.cardCarousel{
+    display: flex;
+    flex-direction: column;
+    margin: 0 45px;
+}
+
+.CarouselHeading{
+    display: inline;
+    font-size: larger;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.CarouselBody{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    align-items: center;
+}
+
+.CarouselItems{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.CarouselItem{
+    display: flex;
+    padding: 1em;
+}
+
+.CarouselLeftButton button,
+.CarouselRightButton button{
+    display: flex;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: none;
+    z-index: 5;
+    background: none;
+    opacity: 50%;
+}
+
+
+
+.SeeAllLeft{
+    border: none;
+    background: none;
+    font-size: small;
+    font-weight: bold;
+    color: red;
+    float: right;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.CarouselItems::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .CarouselItems {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

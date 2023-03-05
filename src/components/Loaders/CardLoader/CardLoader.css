@@ -1,0 +1,52 @@
+.card{
+    min-height: 190px;
+    width: 10rem;
+}
+
+.card a{
+    margin: auto;
+}
+
+.card-body{
+    padding: .2rem;
+    align-self: center;
+}
+
+.ArtistCardTopLoader{
+    width: 156px;
+    height: 156px;
+    padding: 35%;
+}
+
+.AlignCenter{
+    width: max-content;
+}
+
+.card-title{
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: rgba(0,0,0,.75);
+}
+
+.card-title:hover{
+    color: rgba(0,0,0,1);
+}
+
+.card:hover{
+    list-style: none;
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.artist-img{
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 50%;
+}

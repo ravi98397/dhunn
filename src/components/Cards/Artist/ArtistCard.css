@@ -1,0 +1,71 @@
+.card{
+    border: none;
+    width: 10rem;
+}
+
+.card-body{
+    padding: .2rem;
+    align-self: center;
+}
+
+.card-title{
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: rgba(0,0,0,.75);
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-title:hover{
+    color: rgba(0,0,0,1);
+}
+
+.card:hover{
+    list-style: none;
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.play_icon{
+    list-style: none;
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+    cursor: pointer;
+    background-image: url(SongArt.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.artist-img{
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 50%;
+}

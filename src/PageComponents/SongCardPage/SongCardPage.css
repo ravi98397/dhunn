@@ -1,0 +1,18 @@
+.SongCardPage{
+    margin: 0 32px;
+}
+
+.SongCardPageHeading{
+    margin-left: 13px;
+}
+
+.SongCardPageHeading h2{
+    font-weight: bold;
+}
+
+
+.AllSongCards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}

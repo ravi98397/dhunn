@@ -1,0 +1,48 @@
+.Details_info{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: auto;
+    margin: 45px;
+    height: 370px;
+}
+
+.DetailsBody{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.DetailsSongImg{
+    max-width: 360px;
+    margin: 10px;
+}
+
+.DetailsList{
+    list-style: none;
+    margin: 5px 0;
+    padding: 2px;
+}
+
+.Details li{
+    color: rgba(1,1,1,.75);
+    font-size: medium;
+    padding: 3px 0;
+}
+
+.DetailsHeader{
+    padding: 2px;
+    color: black;
+    font-size: x-large;
+    margin: 10px 0;
+}
+
+.Details_infoPlayBtn{
+    color: white;
+    background-color: red;
+    margin: 5px 0;
+    width: 120px;
+    height: 38px;
+    border: none;
+    border-radius: 17px;
+}

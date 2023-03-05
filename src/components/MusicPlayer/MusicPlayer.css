@@ -1,0 +1,174 @@
+.FooterMusicPlayer{
+    height: 75px;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: 0 2px 2px rgba(1, 1, 1, .75);
+}
+
+.FooterSongDetail{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 75px;
+}
+
+.FooterPlayerOption{
+    width: 30%;
+    height: 75px;
+    display: flex;
+}
+
+.FooterPlayerTimer{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 75px;
+}
+
+
+.FooterPlayerNav{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.FooterItem{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.FooterSongImg{
+    width: 50px;
+}
+
+.FooterSongItem{
+    width: 100%;
+    margin: none;
+    padding: none;
+    white-space: none;
+    line-height: 90%;
+    height: auto;
+}
+
+.FooterSongName{
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: small;
+    white-space: none;
+    line-height: 80%;
+}
+
+.FooterMovieName{
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: x-small;
+    white-space: none;
+    line-height: 80%;
+}
+
+.FooterFavIcon{
+    padding: 5px;
+}
+
+.FooterTimer{
+    padding: 3px;
+    border: 2px solid rgba(1, 1, 1, .75);
+    border-radius: 17px;
+    color: rgba(1, 1, 1, .75);
+}
+
+.PlayerComponents{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.FooterOtherOPtion{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    min-width: 30%;
+    float: left;
+}
+
+.FooterAudioIcon, .FooterAudioQuality, .FooterUpnext{
+    all: unset;
+    margin: 2px;
+    padding: 2px;
+    color: rgba(1, 1, 1, .75);
+}
+
+.FooterAudioIcon{
+    border: 2px solid rgba(1, 1, 1, .75);
+    height: min-content;
+    border-radius: 50%;
+}
+
+.FooterAudioQuality button{
+    border: 2px solid rgba(1, 1, 1, .75);
+    padding: 0 2px;
+    border-radius: 17px;
+    color: rgba(1, 1, 1, .75);
+}
+
+.noStyleButton{
+    border: none;
+    background-color: white;
+}
+
+.FooterSongProgressBar .FooterSongRange{
+    position: absolute;
+    color: red;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(1, 1, 1, .5);
+    transition: width 2s;
+}
+
+.FooterAudioRange{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 60px;
+    padding: 0px 11px;
+    width: 30px;
+    height: auto;
+    border-radius: 40px;
+    border: 3px solid rgba(1, 1, 1, .5);
+}
+
+.FooterSongAudioRange{
+    
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    width: 8px;
+    height: 120px;
+    left: 12.5px;
+    top: -120px;
+}
+
+.FooterCollapseMenu button{
+    margin:20px;
+    padding: 0;
+    border: none;
+    background-color: white;
+}
+
+.upnextpanel{
+    text-align: left;
+}
+

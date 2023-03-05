@@ -1,0 +1,6 @@
+.carousel_items{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    overflow: hidden;
+}

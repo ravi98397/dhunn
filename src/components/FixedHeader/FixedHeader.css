@@ -1,0 +1,9 @@
+.nav-link{
+    color: rgba(0,0,0,.5);
+    transition: ease-in .1s;
+}
+
+.nav-link:hover{
+    color: rgba(0,0,0,1);
+    text-decoration: underline rgba(0,0,0,.75);
+}

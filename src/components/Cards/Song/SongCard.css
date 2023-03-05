@@ -1,0 +1,46 @@
+.cardnew{
+    display: flex;
+    width: 100%;
+    border: solid red;
+}
+
+.card-img-top{
+    width: 10rem;
+}
+
+.card-body{
+    padding: .2rem;
+}
+
+.card-title{
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: rgba(0,0,0,.75);
+}
+
+.card-title:hover{
+    color: rgba(0,0,0,1);
+}
+
+.card:hover{
+    list-style: none;
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.highlight{
+    border: solid black;
+}
+
+.editButton{
+    width: min-content;
+    border: none;
+    background-color: white;
+    float: right;
+}
