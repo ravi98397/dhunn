@@ -142,13 +142,10 @@
 .FooterAudioRange{
     display: flex;
     flex-direction: column;
-    position: relative;
-    bottom: 60px;
+    position: absolute;
     padding: 0px 11px;
     width: 30px;
     height: auto;
-    border-radius: 40px;
-    border: 3px solid rgba(1, 1, 1, .5);
 }
 
 .FooterSongAudioRange{
@@ -170,5 +167,9 @@
 
 .upnextpanel{
     text-align: left;
+}
+
+.disable{
+    visibility: hidden;
 }
 

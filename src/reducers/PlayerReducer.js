@@ -3,7 +3,8 @@ let initialState = {
     isPlaying: false,
     songList: [],
     currentlyPlaying: 0,       
-    played: 0
+    played: 0,
+    audio: 50
 }
 
 function shuffler(){
@@ -56,12 +57,11 @@ const playerReducer = (state = initialState, action) => {
                 ...state,
                 currentlyPlaying: rand
             }
-        case 'SETALLgenreS':
-            console.log("SETALLgenre : ", action.payload);
+        case 'UPDATEAUDIO':
+            console.log("updating volume...");
             return {
                 ...state,
-                genreLoading: false,
-                genres: action.payload
+                audio: action.payload
             }
         default:
             console.log("Genre Reducer don't have any matching Action");

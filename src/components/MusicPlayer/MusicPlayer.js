@@ -7,6 +7,8 @@ import './MusicPlayer.css';
 import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContextMenu from '../ContextMenu/ContextMenu';
+import VolumeBar from '../VolumeBar/VolumeBar';
+import { useEffect } from 'react';
 
 const SONGURL = 'http://localhost:4000/getSong/'
 
@@ -23,10 +25,11 @@ const MusicPlayer = () => {
     console.log(songref);
     const progressref = useRef(0);
     
-    const [curraudio, setCurraudio] = useState(50);
+    let curraudio = useSelector(state => state.Player.audio)
     const [timer, setTimer] = useState(0);
     const [duration, setDuration] = useState(0);
 
+    let [audiobarstatus, setAudiobarstatus] = useState(false);
 
     let dispatch = useDispatch();
     
@@ -83,14 +86,34 @@ const MusicPlayer = () => {
         songref.current.currentTime = 0;
     }
 
+    useEffect(() => {
+        console.log("updating audio")
+        console.log(curraudio)
+        songref.current.volume = curraudio/100;
+    }, [curraudio])
+
+    /*
     const updateAudio = (event) => {
         setCurraudio(event.target.value);
         songref.current.volume = curraudio/100;
+    }*/
+
+    const toggleAudioBarStatus = () => {
+        setAudiobarstatus(!audiobarstatus);
+    }
+
+    let [conx, setConx] = useState(0);
+    let [cony, setCony] = useState(0);
+    const updateContextMenuLoc = (e) => {
+        console.log(e)
+        setConx(e.pageX);
+        setCony(e.pageY);
     }
 
 
     return(
         <>
+        <ContextMenu clientX={conx} clientY={cony}/>
         <header className="FooterMusicPlayer">
             <div className='FooterSongProgressBar'>
                 <input type="range" ref={progressref} className='FooterSongRange' name="progress" min="0" max={duration} value={timer} 
@@ -114,7 +137,11 @@ const MusicPlayer = () => {
                         <AiOutlineHeart size={25}/> 
                     </div>
                     <div className='FooterCollapseMenu'>
-                        <ContextMenu/>
+                        
+                        <button className='noStyleButton'>
+                            
+                            <HiDotsVertical size={25} onClick={updateContextMenuLoc}/>
+                        </button>
                     </div>   
                 </div>
                 <div className='FooterPlayerOption'>
@@ -140,18 +167,11 @@ const MusicPlayer = () => {
                     </div>
                 </div>
                 <div className='FooterOtherOPtion'>
-                    <div className='FooterItem FooterAudioRange'>
-                        <input type="range" 
-                            className='FooterSongAudioRange' 
-                            orient="vertical"
-                            name="audiorange" 
-                            min="0" 
-                            max="100" 
-                            value={curraudio} onChange={updateAudio}
-                            />
-                            <button className='FooterAudioIcon'>
-                                <FiVolume2 size={25}/>
-                            </button>
+                    <div className='FooterItem'>
+                        {audiobarstatus ? <VolumeBar className="FooterAudioRange"/> : <></>}
+                        <button className='noStyleButton' onClick={toggleAudioBarStatus}>
+                            <FiVolume2 size={25} className='FooterAudioIcon'/>
+                        </button>
                     </div>
                     <div className='FooterItem FooterAudioQuality'>
                         <button>Audio: High</button>

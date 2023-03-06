@@ -1,0 +1,13 @@
+.disable{
+    visibility: hidden;
+}
+
+.FooterSongAudioRange{
+    position: relative;
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    width: 8px;
+    height: 120px;
+    left: 23px;
+    top: -90px
+}
