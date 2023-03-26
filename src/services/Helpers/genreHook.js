@@ -3,7 +3,7 @@ import { getPlaylistById } from "../filters/playlistFilter";
 const { default: axios } = require("axios");
 const { useEffect } = require("react");
 
-const URL = 'http://localhost:8080/';
+const URL = process.env.REACT_APP_API.BASEURL;
 
 export function fetchLatestSong(action){
     
