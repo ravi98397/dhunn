@@ -105,6 +105,39 @@
     float: left;
 }
 
+
+@media all and (max-width:990px) {
+    .FooterSongDetail{
+        display: none;
+    }   
+
+    .FooterPlayerOption{
+        width: 70%;
+    }
+
+    .FooterOtherOPtion{
+        width: 30%;
+    }
+}
+
+@media all and (max-width:700px) {
+    .FooterSongDetail{
+        display: none;
+    }   
+
+    .FooterPlayerOption{
+        width: 100%;
+    }
+
+    .FooterOtherOPtion{
+        display: none;
+    }
+
+    .FooterTimer{
+        display: none;
+    }
+}
+
 .FooterAudioIcon, .FooterAudioQuality, .FooterUpnext{
     all: unset;
     margin: 2px;

@@ -100,7 +100,7 @@ const Header = () => {
                         </div>
                         <div className="log_wrap">
                             <a className="logo" href="http://localhost:3000/">
-                                CGANNA
+                                Dhunn
                             </a>
                         </div>
                         <div className="sbox">
