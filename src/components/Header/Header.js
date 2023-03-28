@@ -99,7 +99,7 @@ const Header = () => {
                             </a>
                         </div>
                         <div className="log_wrap">
-                            <a className="logo" href="http://localhost:3000/">
+                            <a className="logo" href="https://music.skillsprouts.in/">
                                 Dhunn
                             </a>
                         </div>

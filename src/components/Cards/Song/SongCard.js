@@ -1,5 +1,6 @@
 import "./SongCard.css";
 import { AiOutlinePlayCircle } from 'react-icons/ai';
+import { SiApplemusic } from 'react-icons/si';
 import { FaEdit } from 'react-icons/fa';
 import { useDispatch, useSelector } from "react-redux";
 import { setEdit } from "../../../actions/updateAction";
@@ -25,13 +26,23 @@ const SongCard = (props) => {
                     dispatch(initializePlayer(props.playlist_id, props.currindx))
                 }}
             >    
-                <img src={URL} className="card-img-top" alt="..."/>
+                {
+                    URL != null ? 
+                        <img src={URL} className="card-img-top" alt="image not found"/> :
+                        <img src={`${process.env.PUBLIC_URL}/SongArt.png`} className="card-img-top" alt="image not found"/> 
+                }
+                
+                
                 <div>
                     <span className="play_icon"><AiOutlinePlayCircle/></span>
                 </div>
             </a>
             <div className="card-body">
-                <a href="#" className="card-title">{title}</a>
+                <a 
+                href="#" onClick={() => {
+                    dispatch(initializePlayer(props.playlist_id, props.currindx))
+                }} 
+                className="card-title">{title}</a>
             </div>
         </div>
     );

@@ -54,7 +54,7 @@ const CardCarousel = (props) => {
             </div>
             <div className='CarouselBody'>
                 <div className='CarouselLeftButton'>
-                    <button onClick={scrollLeft}><BsFillArrowLeftCircleFill size={25}/></button>
+                    <button onClick={scrollRight}><BsFillArrowLeftCircleFill size={25}/></button>
                 </div>
                 <div ref={curItemsDiv} className='CarouselItems'>
                     {data.map((obj, index) => {
@@ -67,7 +67,7 @@ const CardCarousel = (props) => {
                     )}
                 </div>
                 <div className='CarouselRightButton'>
-                    <button onClick={scrollRight}><BsFillArrowRightCircleFill size={25}/></button>
+                    <button onClick={scrollLeft}><BsFillArrowRightCircleFill size={25}/></button>
                 </div>
             </div>
         </div>
