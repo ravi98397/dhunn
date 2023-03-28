@@ -1,5 +1,5 @@
 import { AiFillStepBackward, AiFillStepForward, AiOutlineHeart } from 'react-icons/ai';
-import { BsFillPlayCircleFill } from 'react-icons/bs';
+import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
 import { HiDotsVertical } from 'react-icons/hi';
 import { IoMdShuffle, IoMdRepeat } from 'react-icons/io';
 import { FiVolume2 } from 'react-icons/fi';
@@ -150,19 +150,23 @@ const MusicPlayer = () => {
                     </div>
                     <div className='FooterPlayerNav'>
                         <div className='FooterItem'>
-                            <button className="noStyleButton" onClick={repeat}><IoMdRepeat size={25}/></button>
+                            <button className="noStyleButton repeat" onClick={repeat}><IoMdRepeat size={25}/></button>
                         </div>
                         <div className='FooterItem'>
-                            <button className="noStyleButton" onClick={prev}><AiFillStepBackward size={25}/></button> 
+                            <button className="noStyleButton prev" onClick={prev}><AiFillStepBackward size={25}/></button> 
                         </div>
                         <div className='FooterItem'>
-                            <button className='noStyleButton' onClick={playpause}><BsFillPlayCircleFill size={40}/></button>
+                            <button className='noStyleButton playpause' onClick={playpause}>
+                                {
+                                    !player.isPlaying ? <BsFillPlayCircleFill size={40}/> : <BsFillPauseCircleFill size={40}/>
+                                }
+                            </button>
                         </div>   
                         <div className='FooterItem'>
-                            <button className="noStyleButton" onClick={next}><AiFillStepForward size={25}/></button> 
+                            <button className="noStyleButton next" onClick={next}><AiFillStepForward size={25}/></button> 
                         </div>
                         <div className='FooterItem'>
-                            <button className="noStyleButton" onClick={shuffle}><IoMdShuffle size={25}/></button>
+                            <button className="noStyleButton shuffle" onClick={shuffle}><IoMdShuffle size={25}/></button>
                         </div>
                     </div>
                 </div>

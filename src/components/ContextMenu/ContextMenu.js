@@ -29,7 +29,7 @@ const ContextMenu = (props) => {
             console.log("settign height", checkref.current.style.top)
         }*/
         checkref.current.style.left = vx+'px';
-        checkref.current.style.top = vh+'px';
+        checkref.current.style.top = vy+'px';
     }, [checkref])
         
 

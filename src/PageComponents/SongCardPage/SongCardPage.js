@@ -2,8 +2,8 @@ import SongCard from '../../components/Cards/Song/SongCard';
 import './SongCardPage.css';
 
 const SongCardPage = (props) => {
-    let data = props.songs;
-    console.log("data in songcardpage ===", data)
+    let data = props.data;   //data should be iterable and should have imgurl
+    
     let playlist_id = props.playlist_id;
     //let key = props.key;
     

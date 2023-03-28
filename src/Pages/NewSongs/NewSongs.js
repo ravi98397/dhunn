@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingCarousel from "../../components/LoadingCarousel/LoadingCarousel";
 import SongCardPage from "../../PageComponents/SongCardPage/SongCardPage";
 import { getPlaylistByUseridPlaylistName } from "../../services/filters/playlistFilter";
-import { fetchNewSongs } from "../../services/Helpers/genreHook";
+import { fetchNewSongs } from "../../services/Helpers/getRequests";
 
 const NewSongs = (props) => {
     

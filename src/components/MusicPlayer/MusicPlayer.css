@@ -105,39 +105,6 @@
     float: left;
 }
 
-
-@media all and (max-width:990px) {
-    .FooterSongDetail{
-        display: none;
-    }   
-
-    .FooterPlayerOption{
-        width: 70%;
-    }
-
-    .FooterOtherOPtion{
-        width: 30%;
-    }
-}
-
-@media all and (max-width:700px) {
-    .FooterSongDetail{
-        display: none;
-    }   
-
-    .FooterPlayerOption{
-        width: 100%;
-    }
-
-    .FooterOtherOPtion{
-        display: none;
-    }
-
-    .FooterTimer{
-        display: none;
-    }
-}
-
 .FooterAudioIcon, .FooterAudioQuality, .FooterUpnext{
     all: unset;
     margin: 2px;
@@ -206,3 +173,34 @@
     visibility: hidden;
 }
 
+@media all and (max-width:990px) { 
+    .FooterSongDetail{
+        width: 40%;
+    }
+
+    .FooterPlayerOption{
+        width: 20%;
+    }
+    .FooterOtherOPtion{
+        width: 40%;
+        opacity: 0;
+    }
+
+    .repeat, .shuffle, .FooterPlayerTimer, .FooterFavIcon, .FooterCollapseMenu{
+        display: none;
+    }
+}
+
+@media all and (max-width:700px) { 
+    .FooterSongDetail{
+        width: 70%;
+    }
+
+    .FooterPlayerOption{
+        width: 30%;
+    }
+
+    .FooterOtherOPtion, .FooterPlayerTimer, .FooterFavIcon, .FooterCollapseMenu, .repeat, .prev, .shuffle{
+        display: none;
+    }
+}

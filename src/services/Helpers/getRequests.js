@@ -3,8 +3,8 @@ import { getPlaylistById } from "../filters/playlistFilter";
 const { default: axios } = require("axios");
 const { useEffect } = require("react");
 
-//const URL = process.env.REACT_APP_API.BASEURL;
-const URL = "";
+const URL = process.env.REACT_APP_API.BASEURL;
+//const URL = "";
 
 
 export function fetchLatestSong(action){
@@ -93,5 +93,20 @@ export function initializePlayer(id,currindx){
     }
 }
 
+export function getNextAlbumPage(){
+    
+    return async (dispatch, getState) => {
+        let state = getState();
+        //console.log("this is where i am trying to see: ",id, state.Playlist.playlists)
+        const response = await axios.get(URL + `api/v1/album/getAll?pageno=${state.Album.currentpage + 1}`)
+        console.log(`response for album page ${state.Album.currentpage + 1}`, response.data)
+        dispatch({
+                type:'ADDALBUMPAGE', 
+                payload: {
+                    albumPage: response.data 
+                    }
+                })
+    }
+}
 
 // {fetchLatestSong, fetchTrendingSong, fetchPlaylistById, initializePlayer}

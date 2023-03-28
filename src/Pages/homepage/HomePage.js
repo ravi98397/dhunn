@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardCarousel from "../../components/CardCarousel/CardCarousel";
 import LoadingCarousel from "../../components/LoadingCarousel/LoadingCarousel";
-import {fetchLatestSong, fetchTrendingSong } from "../../services/Helpers/genreHook";
+import { fetchLatestSong, fetchTrendingSong } from "../../services/Helpers/getRequests";
 
 
 const HomePage = () => {

@@ -3,7 +3,7 @@ import { AiOutlinePlayCircle } from 'react-icons/ai';
 import { FaEdit } from 'react-icons/fa';
 import { useDispatch, useSelector } from "react-redux";
 import { setEdit } from "../../../actions/updateAction";
-import { initializePlayer } from "../../../services/Helpers/genreHook";
+import { initializePlayer } from "../../../services/Helpers/getRequests";
 
 
 const SongCard = (props) => {

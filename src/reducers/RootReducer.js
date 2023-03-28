@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import userReducer from './UserReducer';
 import playerReducer from './PlayerReducer';
 import playlistReducer from './playlistReducer';
+import albumReducer from './AlbumReducer';
 
 const allReducer = combineReducers({
     Songs: songReducer,
@@ -12,7 +13,8 @@ const allReducer = combineReducers({
     Genre: genreReducer,
     User: userReducer,
     Player: playerReducer,
-    Playlist: playlistReducer
+    Playlist: playlistReducer,
+    Album:albumReducer
 })
 
 export default allReducer;

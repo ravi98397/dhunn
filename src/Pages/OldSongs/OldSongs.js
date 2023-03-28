@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingCarousel from "../../components/LoadingCarousel/LoadingCarousel";
 import TileCardPage from "../../PageComponents/TileCardPage.js/TileCardPage";
 import { getPlaylistByUseridPlaylistName } from "../../services/filters/playlistFilter";
-import { fetchTrendingSong } from "../../services/Helpers/genreHook";
+import { fetchTrendingSong } from "../../services/Helpers/getRequests";
 
 const OldSongs = (props) => {
     
