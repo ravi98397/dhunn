@@ -5,6 +5,7 @@ import { FaLanguage, FaMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiUserCircle } from 'react-icons/bi';
 import { Link, useLocation } from "react-router-dom";
+import SearchBox from "../SearchBox/SearchBox";
 
 
 const Header = () => {
@@ -76,12 +77,6 @@ const Header = () => {
                 </div>
                 <hr/>
                 <div className="row">
-                    <h3 className="subnavhead">Go Premium</h3>
-                    <a className="my-nav-items" href="#">Go Ad-Free</a>
-                    <a className="my-nav-items" href="#">Get cGanna Plus</a>
-                </div>
-                <hr/>
-                <div className="row">
                     <h3 className="subnavhead">Quick Access</h3>
                     {quickAccess.map(item => (
                         <Link className="my-nav-items" key={quickAccess.indexOf(item)} to={getPath(item.name)}>
@@ -104,7 +99,7 @@ const Header = () => {
                             </a>
                         </div>
                         <div className="sbox">
-                            <input type="text" className="input_box" placeholder="Search Artists, Songs, Albums" />
+                            <SearchBox/>
                         </div>
                     </div>
                     <div className="responsive_subpart">

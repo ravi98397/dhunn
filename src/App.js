@@ -11,6 +11,7 @@ import NewSongs from './Pages/NewSongs/NewSongs';
 import OldSongs from './Pages/OldSongs/OldSongs';
 import AlbumPage from './Pages/AlbumPage/AlbumPage';
 import LoginPage from './Pages/LoginPage/LoginPage';
+import SearchBox from './components/SearchBox/SearchBox';
 
 function App() {
 
