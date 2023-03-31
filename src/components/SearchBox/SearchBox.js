@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BiSearchAlt } from 'react-icons/bi';
 import './SearchBox.css';
 
 const SearchBox = () => {

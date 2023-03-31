@@ -78,6 +78,20 @@
 
 @media all and (max-width:590px) {
     .swrapper{
-        width: 100%;
+        width: 50%;
     }    
+}
+
+@media all and (max-width:590px) {
+    .input_box{
+        width: 40px;
+    }    
+
+    .input_box:focus-within {
+        width: 100%;
+    }
+
+    .input_box:focus-within  {
+        width: 100%;
+    }
 }
