@@ -4,6 +4,9 @@ import './SongCardPage.css';
 const SongCardPage = (props) => {
     let data = props.data;   //data should be iterable and should have imgurl
     
+    console.log("this is song card page")
+    console.log(data)
+
     let playlist_id = props.playlist_id;
     //let key = props.key;
     

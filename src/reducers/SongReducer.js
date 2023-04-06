@@ -50,9 +50,11 @@ const songReducer = (state = initialState, action) => {
 
 import { combineReducers } from "redux";
 import newSongsReducer from "./songReducers/NewSongsReducer";
+import songDirReducer from "./songReducers/SongDirReducer";
 
 const songReducer = combineReducers({
-    NewSongs: newSongsReducer
+    NewSongs: newSongsReducer,
+    SongDir: songDirReducer
 })
 
 export default songReducer;

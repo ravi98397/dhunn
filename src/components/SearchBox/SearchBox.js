@@ -1,26 +1,43 @@
 import { useEffect, useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import './SearchBox.css';
+import { fetchAlbumById, fetchArtistById, fetchSongById, getSearchResults } from '../../services/Helpers/getRequests';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const SearchBox = () => {
 
     const [searchText, setSearchText] = useState("");
+    const [data, setData] = useState([]);
+    const dispatch = useDispatch();
 
-    const [data, setData] = useState(["vbnhuiisudosid", "data1", "data2", "data2"]);
-    
-    console.log(data);
-
+    useEffect(() => {
+        axios.get(`http://localhost:8080/search?term=${searchText}`)
+        .then(res => setData(res.data))
+    },[searchText])
 
     const updateSearchText = (e) => {
-        
-        let arr = [];
-        let random = Math.random() * 20;
-        for(let i = 0; i < random; i++){
-            arr.push(searchText);
-        }
-
-        setData(arr);
         setSearchText(e.target.value);
+        console.log("chainging")
+    }
+
+    const processReq = (e) => {
+        let item = (data[e.currentTarget.id]);
+
+        switch(item.type){
+            case 'song':
+                console.log("triggered")
+                dispatch(fetchSongById(item.id));
+                break;
+            case 'artist':
+                dispatch(fetchArtistById(item.id));
+                break;
+            case 'album':
+                dispatch(fetchAlbumById(item.id));
+                break
+            default:
+                console.log("nothing.....")
+        }
     }
 
     return (
@@ -30,9 +47,18 @@ const SearchBox = () => {
                 placeholder="Search Artists, Songs, Albums" 
                 onChange={updateSearchText}
             />
-            <div className='sresults'>
+            <div className='sresults'   >
                 {
-                    data.map((val, index) => <a href='#' className='sresult'>{val}</a>   )
+                    data.map((val, index) => 
+                        <a 
+                        id={index}
+                        href='#' 
+                        className='sresult'
+                        onClick={processReq}
+                        >
+                            {val.value}
+                            <span className='searchType'>{val.type}</span>
+                        </a>   )
                 }
             </div>
         </div>

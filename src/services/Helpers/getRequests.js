@@ -6,6 +6,54 @@ const { useEffect } = require("react");
 const URL = process.env.REACT_APP_API.BASEURL;
 //const URL = "";
 
+export function fetchSongById(songid, action){
+    
+    return async (dispatch, getState) => {
+        console.log("call came hereeeeeeeeeeee")
+        axios.get(URL + `api/v1/song/getById?id=${songid}`)
+        .then((result) => {
+            console.log("resulttttttt :", result)
+            return {
+                type: 'ADD_SONG',
+                payload: result.data
+            };
+        }) 
+        .catch(error => console.error(error))
+    }
+}
+
+export function fetchArtistById(artistId, action){
+    
+    return async (dispatch, getState) => {
+        console.log("call came hereeeeeeeeeeee")
+        axios.get(URL + `api/v1/artist/getById?id=${artistId}`)
+        .then((result) => {
+            console.log("resulttttttt :", result)
+            // dispatch({
+            //     type: 'ADDPLAYLIST',
+            //     payload: result.data
+            // });
+        }) 
+        .catch(error => console.error(error))
+    }
+}
+
+export function fetchAlbumById(albumid, action){
+    
+    return async (dispatch, getState) => {
+        console.log("call came hereeeeeeeeeeee")
+        axios.get(URL + `api/v1/album/getById?id=${albumid}`)
+        .then((result) => {
+            console.log("resulttttttt :", result)
+            // dispatch({
+            //     type: 'ADDPLAYLIST',
+            //     payload: result.data
+            // });
+        }) 
+        .catch(error => console.error(error))
+    }
+}
+
 
 export function fetchLatestSong(action){
     
@@ -108,5 +156,11 @@ export function getNextAlbumPage(){
                 })
     }
 }
+
+// export async function getSearchResults(term){
+//     const response = await axios.get(`http://localhost:8080/search?term=${term}`)
+//     console.log(`response for search query for ${term}`, response.data)
+//     return response.data
+// }
 
 // {fetchLatestSong, fetchTrendingSong, fetchPlaylistById, initializePlayer}

@@ -76,6 +76,12 @@
     background-color:  #e7e2e0;
 }
 
+.searchType{
+    color: #000;
+    size: small;
+    float: right;
+}
+
 @media all and (max-width:590px) {
     .swrapper{
         width: 50%;
