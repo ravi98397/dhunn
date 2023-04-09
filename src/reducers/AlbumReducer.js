@@ -1,5 +1,5 @@
 let initialState = {
-    allAlbums: [],
+    allAlbums: new Map(),
     currentpage: 0
 }
 
@@ -7,23 +7,17 @@ const albumReducer = (state = initialState, action) => {
     console.log(action.type)
     switch (action.type) {
         case 'ADDALBUM':
-            let newarr = state.allAlbums;
-            newarr.append(action.payload)
+            state.allAlbums.set(action.payload.id, action.playload)
             return {
                 ...state,
-                allAlbums: newarr
             };
-        case 'ADDALBUMPAGE':
-            if(state.artistLoading){
-                let newarr = state.allAlbums;
-                newarr.concat(action.payload.albumPage)
-                return {
-                    ...state,
-                    allAlbums: newarr,
-                    currentpage: state.currentpage + 1
-                }
-            }else{
-                return state;
+        case 'ADDALBUMLIST':
+            for(let i in action.playload){
+                state.allAlbums.set(action.playload[i].id, action.payload[i])
+            }
+            return {
+                ...state,
+                currentpage: state.currentpage + 1
             }          
         default:
             console.log("Album Reducer don't have any matching Action");

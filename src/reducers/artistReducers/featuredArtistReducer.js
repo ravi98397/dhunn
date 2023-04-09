@@ -6,7 +6,7 @@ let initialState = {
 
 const featuredArtistReducer = (state = initialState, action) => {
     switch (action.type){
-        case 'ADD_ARTIST':
+        case 'ADD_FEATURED_ARTIST':
             return{
                 ...state,
                 featuredArtist: action.value

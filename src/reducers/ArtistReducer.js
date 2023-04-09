@@ -49,10 +49,12 @@ export default artistReducer;
 */
 
 import { combineReducers } from "redux";
+import artistDirReducer from "./artistReducers/ArtistDirReducer";
 import featuredArtistReducer from "./artistReducers/featuredArtistReducer";
 
 const artistReducer = combineReducers({
     featuredArtist: featuredArtistReducer,
+    artistDir: artistDirReducer
 })
 
 export default artistReducer;
