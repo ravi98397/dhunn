@@ -19,9 +19,9 @@ const NewSongs = (props) => {
     }, [])
 
     return(
-        <>
-            {JSON.stringify(playlist) === '{}' ? <LoadingCarousel/> : <SongCardPage playlist_id={playlist.id} data={playlist.songs} heading="New Songs" dispKey="song" />}
-        </>
+        <div onChange={e => console.log(e)}>
+            {JSON.stringify(playlist) === '{}' ? <LoadingCarousel/> : <SongCardPage id={playlist.id} data={playlist.songs} heading="New Songs" dispKey="song" type={'playlist'} />}
+        </div>
     )
 }
 

@@ -12,9 +12,34 @@ const AlbumPage = (props) => {
         getNextAlbumPage();
     }
 
+    const lastElement = () => {
+        
+    }
+
     return(
-        <div className="wrapper">
-            <SongCardPage heading="Album" data={albums} />
+        <div className='SongCardPage'>
+            <div className='SongCardPageHeading'>
+                <h2>{props.heading}</h2>
+            </div>
+            <div className='AllSongCards'>
+                {data.map((item, index) => {
+                    if(data.length == index + 1){
+                        return (
+                            <div ref={lastElement} key={index} className='CarouselItem'>
+                                <SongCard data={item} id={id} currindx={index} type={type}/>
+                            </div>
+                        )
+                    }else{
+                        return(
+                            <div key={index} className='CarouselItem'>
+                                <SongCard data={item} id={id} currindx={index} type={type}/>
+                            </div>
+                        )
+                    }
+                }
+                        
+                )}
+            </div>
         </div>
     )
 }

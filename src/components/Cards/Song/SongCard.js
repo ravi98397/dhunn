@@ -9,7 +9,7 @@ import { initializePlayer } from "../../../services/Helpers/getRequests";
 
 const SongCard = (props) => {
     let data = props.data;
-
+    let type = props.type;
     let title = data.name;
     let URL = data.imgurl;
     //console.log(URL)
@@ -24,7 +24,7 @@ const SongCard = (props) => {
             <a 
                 href="#"
                 onClick={() => {
-                    dispatch(initializePlayer(props.playlist_id, props.currindx))
+                    dispatch(initializePlayer(props.id, props.currindx, type))
             }}
             >
                 <div class="overlayer">

@@ -3,26 +3,30 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingCarousel from "../../components/LoadingCarousel/LoadingCarousel";
 import TileCardPage from "../../PageComponents/TileCardPage.js/TileCardPage";
 import { fetchAlbumById, fetchTrendingSong } from "../../services/Helpers/getRequests";
+import { useParams } from "react-router-dom";
 
-const AlbumDetailsPage = (props) => {
-
-    let albumid = props
+const AlbumDetailsPage = () => {
+    //const [albumid, setAlbumid] = useState(useParams().id);
     const [album, setAlbum] = useState({});
-    const [isLoading, setLoading] = useState(true);
-
     let dispatch = new useDispatch();
-
+    let albumid = useParams().id;
     let albums = useSelector(state => state.Album.allAlbums);
-    if(albums.has(albumid)){
-        setAlbum(albums.get(albumid));
-        setLoading(false);
-    }else{
-        dispatch(fetchAlbumById('ADDALBUM'))
-    }
+    
+    albums.map((item) => {
+        if(item.id == albumid && album.id != albumid){ 
+            setAlbum(item);
+        }
+    });
+    useEffect(() => {
+        dispatch(fetchAlbumById(albumid)); 
+        console.log("triggered")
+    }, [useParams().id])
+
+    
 
     return(
         <>
-            {isLoading ? <LoadingCarousel/> : <TileCardPage songs={album} dispKey="album" />}
+            {JSON.stringify(album) == '{}' ? <LoadingCarousel/> : <TileCardPage data={album} type="album" dispKey="album" />}
         </>
     )
 }

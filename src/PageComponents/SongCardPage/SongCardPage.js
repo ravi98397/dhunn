@@ -7,7 +7,8 @@ const SongCardPage = (props) => {
     console.log("this is song card page")
     console.log(data)
 
-    let playlist_id = props.playlist_id;
+    let id = props.id;
+    let type = props.type;
     //let key = props.key;
     
     return(
@@ -18,7 +19,7 @@ const SongCardPage = (props) => {
             <div className='AllSongCards'>
                 {data.map((item, index) => 
                     <div key={index} className='CarouselItem'>
-                        <SongCard data={item} playlist_id={playlist_id} currindx={index}/>
+                        <SongCard data={item} id={id} currindx={index} type={type}/>
                     </div>
                 )}
             </div>

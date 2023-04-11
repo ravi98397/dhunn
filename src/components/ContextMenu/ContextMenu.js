@@ -10,7 +10,7 @@ const ContextMenu = (props) => {
 
     let vx = props.clientX;
     let vy = props.clientY;
-    console.log(vx, vy)
+    //console.log(vx, vy)
     //let vx = 100;
     //let vy = 100;
 
@@ -33,7 +33,7 @@ const ContextMenu = (props) => {
     }, [checkref])
         
 
-    console.log(checkref)
+    //console.log(checkref)
     
     return(
         <>

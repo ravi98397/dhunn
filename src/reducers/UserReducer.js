@@ -23,7 +23,7 @@ const userReducer = (state = initialState, action) => {
             };
 
         default:
-            console.log("USER Reducer don't have any matching Action");
+            //console.log("USER Reducer don't have any matching Action");
             return state;
         };
     }

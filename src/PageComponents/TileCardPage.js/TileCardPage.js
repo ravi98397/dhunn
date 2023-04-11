@@ -6,18 +6,24 @@ import './TileCardPage.css';
 
 const TileCardPage = (props) => {
 
-    let songs = props.songs.songs;
+    let songs = props.data.songs;
+    let type = props.type;
+
+    let name = props.data.name;
+    let createdBy = "dhunn";
+
     console.log("call is comminggggggggggg hereeeeeeeeeeeee", songs)
 
     return(
         <>
-            <Details_info></Details_info>
+            <Details_info name={name} createdBy={createdBy} type={type}></Details_info>
             <SingleLineFilter/>
             <div className='AllSongTiles'>
                 {
                     songs.map(
                         (item, index) => {
-                            return(<SongTile 
+                            return(<SongTile
+                                    id = {index} 
                                     curindx={index} 
                                     song={item}/>)
                                 }

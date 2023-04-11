@@ -8,13 +8,13 @@ import { connect, useSelector } from 'react-redux';
 const CardCarousel = (props) => {
 
     let state = useSelector(state => state);
-    console.log(state)
+    //console.log(state)
 
-    let data = props.data;   // array of songs
-    console.log(props.data, 'is the data we gotttt.......')
-    let playlistid = props.playlist_id;
+    let data = props.songlist;   // array of songs
+    let type = props.type
+    let id = props.id;
 
-    console.log("playlist_id in cardcarusal : ", playlistid)
+    console.log(data)
 
     let [maxScrollable, setMaxScrollable] = useState(0);        
     let curItemsDiv = useRef(0);
@@ -60,7 +60,7 @@ const CardCarousel = (props) => {
                     {data.map((obj, index) => {
                             return (
                             <div ref={curItemDiv} key={obj.id} className='CarouselItem'>
-                                <SongCard data={obj} playlist_id={playlistid} currindx={index}/>
+                                <SongCard data={obj} id={id} currindx={index} type={type}/>
                             </div>
                             )
                         }

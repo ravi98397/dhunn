@@ -18,11 +18,14 @@ const MusicPlayer = () => {
     let curindx = useSelector(state => state.Player.currentlyPlaying);
     let music = songList[curindx];
     
+    console.log("musiccccccccccccc = ", music)
+
+
     const player = useSelector(state => state.Player);
 
 
     const songref = useRef(0);
-    console.log(songref);
+    //console.log(songref);
     const progressref = useRef(0);
     
     let curraudio = useSelector(state => state.Player.audio)
@@ -87,8 +90,8 @@ const MusicPlayer = () => {
     }
 
     useEffect(() => {
-        console.log("updating audio")
-        console.log(curraudio)
+        //console.log("updating audio")
+        //console.log(curraudio)
         songref.current.volume = curraudio/100;
     }, [curraudio])
 
@@ -105,7 +108,7 @@ const MusicPlayer = () => {
     let [conx, setConx] = useState(0);
     let [cony, setCony] = useState(0);
     const updateContextMenuLoc = (e) => {
-        console.log(e)
+        //console.log(e)
         setConx(e.pageX);
         setCony(e.pageY);
     }

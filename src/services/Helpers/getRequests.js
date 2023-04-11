@@ -1,4 +1,4 @@
-import { getPlaylistById } from "../filters/playlistFilter";
+import { getAlbumById, getPlaylistById } from "../filters/playlistFilter";
 
 const { default: axios } = require("axios");
 const { useEffect } = require("react");
@@ -41,16 +41,42 @@ export function fetchArtistById(artistId, action){
 export function fetchAlbumById(albumid, action){
     
     return async (dispatch, getState) => {
-        console.log("call came hereeeeeeeeeeee")
-        axios.get(URL + `api/v1/album/getById?id=${albumid}`)
-        .then((result) => {
-            console.log("resulttttttt :", result)
-            // dispatch({
-            //     type: 'ADDPLAYLIST',
-            //     payload: result.data
-            // });
-        }) 
-        .catch(error => console.error(error))
+        let state = getState();
+        state.Album.allAlbums.map((item) => {
+            if(item.id === albumid) return;
+        })
+        let response = await axios.get(URL + `api/v1/album/getById?id=${albumid}`)
+        if(response.status === 200){
+            console.log("dispatching action ADDALBUM", response.data)
+            return dispatch({
+                type: 'ADDALBUM',
+                payload: response.data
+            })
+        }else{
+            console.error(response.status, response);
+            return
+        }
+    }
+}
+
+export function fetchPlaylistById(id){
+    return async (dispatch, getState) => {
+        let playlists = getState().Playlist.playlists;
+        playlists.map(item => {
+            if(item.id === id) return;
+        })
+        const response = await axios.get(URL + `api/v1/playlist/getPlaylistById?id=${id}`)
+        if(response.status === 200){
+            dispatch({
+                type: 'ADDPLAYLIST',
+                payload: response.data
+            });
+            console.log("dispatch done")
+        }else{
+            console.log("error in fetching playlist", response);
+            return
+        }
+        
     }
 }
 
@@ -92,17 +118,7 @@ export function fetchTrendingSong(action){
     }
 }
 
-export function fetchPlaylistById(id){
-    return async (dispatch, getState) => {
-        const response = await axios.get(URL + `api/v1/playlist/getPlaylistById?id=${id}`)
-        console.log(response)
-        dispatch({
-            type: 'ADDPLAYLIST',
-            payload: response.data
-        });
-        console.log("dispatch done")
-    }
-}
+
 
 export function fetchNewSongs(){
     return async (dispatch, getState) => {
@@ -125,17 +141,27 @@ export function fetchNewSongs(){
     }    
 }
 
-export function initializePlayer(id,currindx){
+export function initializePlayer(id,currindx,type){
     
     return (dispatch, getState) => {
         let state = getState();
-        //console.log("this is where i am trying to see: ",id, state.Playlist.playlists)
-        let playlist = getPlaylistById(id, state.Playlist.playlists);
+        let songlist = [];
+        if(type == 'playlist'){
+            let playlist = getPlaylistById(id, state.Playlist.playlists);
+            songlist = playlist.songs
+        }
+
+        if(type == 'album'){
+            let album = getAlbumById(id, state.Album.allAlbums);
+            songlist = album.songs
+        }
+        
+        
         dispatch({
                 type:'PLAYERINIT', 
                 payload: {
                     currindx,
-                    songList:playlist.songs
+                    songList:songlist
                     }
                 })
     }

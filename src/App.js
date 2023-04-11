@@ -12,6 +12,9 @@ import OldSongs from './Pages/OldSongs/OldSongs';
 import AlbumPage from './Pages/AlbumPage/AlbumPage';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import SearchBox from './components/SearchBox/SearchBox';
+import SearchResultPage from './Pages/SearchResultPage/SearchResultPage';
+import AlbumDetailsPage from './Pages/AlbumDetailsPage/AlbumDetailsPage';
+import PlaylistDetailsPage from './Pages/PlaylistDetailsPage/PlaylistDetailsPage';
 
 function App() {
 
@@ -37,6 +40,9 @@ function App() {
             <Route path="/OldSongs" element={ <OldSongs/> } />
             <Route path="/Album" element={ <AlbumPage/> } />
             <Route path="/Login" element={ <LoginPage/> } />
+            <Route path="/SearchResult" element={ <SearchResultPage/> } />
+            <Route path="/album/:id" element={<AlbumDetailsPage/>} />
+            <Route path="/playlist/:id" element={<PlaylistDetailsPage/>} />
           </Routes>
         </div>
   );

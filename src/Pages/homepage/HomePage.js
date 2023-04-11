@@ -38,8 +38,8 @@ const HomePage = () => {
 
     return(
         <>
-            {JSON.stringify(top20songs) === '{}' ? <LoadingCarousel/> : <CardCarousel heading="Top20 Songs" data={top20songs.songs} playlist_id={top20songs.id} />}
-            {JSON.stringify(trendingSongs) === '{}' ? <LoadingCarousel/> : <CardCarousel heading="Trending Songs" data={trendingSongs.songs} playlist_id={trendingSongs.id} />}
+            {JSON.stringify(top20songs) === '{}' ? <LoadingCarousel/> : <CardCarousel heading="Top20 Songs" songlist={top20songs.songs} id={top20songs.id} type={'playlist'}/>}
+            {JSON.stringify(trendingSongs) === '{}' ? <LoadingCarousel/> : <CardCarousel heading="Trending Songs" songlist={trendingSongs.songs} id={trendingSongs.id} type={'playlist'}/>}
         </>
     )
 }

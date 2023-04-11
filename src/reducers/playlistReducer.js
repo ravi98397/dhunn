@@ -17,7 +17,7 @@ const playlistReducer = (state = initialState, action) => {
                 playlists: state.playlists.concat([action.payload])
             }
         default:
-            console.log("no matching playlist action", action.payload);
+            //console.log("no matching playlist action", action.payload);
             return state;
         };
     }

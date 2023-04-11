@@ -64,7 +64,7 @@ const playerReducer = (state = initialState, action) => {
                 audio: action.payload
             }
         default:
-            console.log("Genre Reducer don't have any matching Action");
+            //console.log("Genre Reducer don't have any matching Action");
             return state;
         };
     }

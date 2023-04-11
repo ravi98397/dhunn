@@ -4,12 +4,15 @@ import './SearchBox.css';
 import { fetchAlbumById, fetchArtistById, fetchSongById, getSearchResults } from '../../services/Helpers/getRequests';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const SearchBox = () => {
 
     const [searchText, setSearchText] = useState("");
     const [data, setData] = useState([]);
     const dispatch = useDispatch();
+
+    console.log(data)
 
     useEffect(() => {
         axios.get(`http://localhost:8080/search?term=${searchText}`)
@@ -50,15 +53,18 @@ const SearchBox = () => {
             <div className='sresults'   >
                 {
                     data.map((val, index) => 
-                        <a 
+
+                    <Link 
                         id={index}
-                        href='#' 
+                        to={
+                            val.type+"/"+val.id
+                        }
                         className='sresult'
-                        onClick={processReq}
+                        //onClick={processReq}
                         >
                             {val.value}
                             <span className='searchType'>{val.type}</span>
-                        </a>   )
+                        </Link>   )
                 }
             </div>
         </div>

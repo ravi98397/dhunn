@@ -1,5 +1,5 @@
 let initialState = {
-    allAlbums: new Map(),
+    allAlbums: [],
     currentpage: 0
 }
 
@@ -7,12 +7,15 @@ const albumReducer = (state = initialState, action) => {
     console.log(action.type)
     switch (action.type) {
         case 'ADDALBUM':
-            state.allAlbums.set(action.payload.id, action.playload)
+            state.allAlbums.map(item => {
+                if(item.id === action.payload.id) return;
+            })
             return {
                 ...state,
+                allAlbums: state.allAlbums.concat([action.payload])
             };
         case 'ADDALBUMLIST':
-            for(let i in action.playload){
+            for(let i in action.payload){
                 state.allAlbums.set(action.playload[i].id, action.payload[i])
             }
             return {
