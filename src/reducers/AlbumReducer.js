@@ -1,6 +1,7 @@
 let initialState = {
     allAlbums: [],
-    currentpage: 0
+    currentpage: 0,
+    hasMore: true
 }
 
 const albumReducer = (state = initialState, action) => {
@@ -14,14 +15,13 @@ const albumReducer = (state = initialState, action) => {
                 ...state,
                 allAlbums: state.allAlbums.concat([action.payload])
             };
-        case 'ADDALBUMLIST':
-            for(let i in action.payload){
-                state.allAlbums.set(action.playload[i].id, action.payload[i])
-            }
+        case 'ADDALBUMPAGE':
             return {
                 ...state,
-                currentpage: state.currentpage + 1
-            }          
+                allAlbums: [...new Set(state.allAlbums.concat(action.payload.data))],
+                currentpage: action.payload.currentpage,
+                hasMore: action.payload.hasMore
+            };        
         default:
             console.log("Album Reducer don't have any matching Action");
             return state;
