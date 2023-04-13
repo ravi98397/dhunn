@@ -8,8 +8,12 @@ const albumReducer = (state = initialState, action) => {
     console.log(action.type)
     switch (action.type) {
         case 'ADDALBUM':
-            state.allAlbums.map(item => {
-                if(item.id === action.payload.id) return;
+            state.allAlbums.map((item, index) => {
+                if(item.id === action.payload.id) 
+                    state.allAlbums[index] = action.payload;
+                    return {
+                        ...state
+                    }
             })
             return {
                 ...state,

@@ -153,6 +153,7 @@ export function initializePlayer(id,currindx,type){
 
         if(type == 'album'){
             let album = getAlbumById(id, state.Album.allAlbums);
+            console.log("look me in the eye", album)
             songlist = album.songs
         }
         

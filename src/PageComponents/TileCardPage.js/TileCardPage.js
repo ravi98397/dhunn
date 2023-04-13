@@ -12,8 +12,6 @@ const TileCardPage = (props) => {
     let name = props.data.name;
     let createdBy = "dhunn";
 
-    console.log("call is comminggggggggggg hereeeeeeeeeeeee", songs)
-
     return(
         <>
             <Details_info name={name} createdBy={createdBy} type={type}></Details_info>
@@ -23,7 +21,9 @@ const TileCardPage = (props) => {
                     songs.map(
                         (item, index) => {
                             return(<SongTile
-                                    id = {index} 
+                                    id = {item.id} 
+                                    key = {index}
+                                    type= {props.type}
                                     curindx={index} 
                                     song={item}/>)
                                 }

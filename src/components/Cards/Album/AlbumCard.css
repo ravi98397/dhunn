@@ -1,0 +1,49 @@
+.albumcard {
+	width: 190px;
+	height: 180px;
+	margin: 15px;
+	position: relative;
+	min-width: 190px;
+}
+.albumcard:hover .overlayer {
+	visibility: visible;
+}
+.albumcard img {
+	width: 100%;
+	height: 100%;
+}
+.albumcard .title  {
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	margin-top: 180px;
+}
+
+.albumcard .title a {
+	top: -175px;
+	color: black;
+	position: relative;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.albumcard .overlayer {
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	text-align: center;
+	visibility: hidden;
+}
+
+.overlayer .fa-play-circle {
+	color: #fff;
+	font-size: 73px;
+	margin-top: 53px;
+	transition: 100ms ease-in-out;
+}
+.fa-play-circle:hover {
+	transform: scale(1.1);
+}

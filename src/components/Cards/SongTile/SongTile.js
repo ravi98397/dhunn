@@ -3,14 +3,22 @@ import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill} from 'react-icons
 import { useRef, useEffect, useState } from 'react';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
+import { initializePlayer } from '../../../services/Helpers/getRequests';
+import { useDispatch } from 'react-redux';
 
 const SongTile = (props) => {
     let curindx = props.curindx;
     let song = props.song;
-    
+    let type = props.type;
+    let dispatch = useDispatch();
 
     return (
-            <div className='SongTile'>
+            <div 
+            className='SongTile'
+            onClick={() => {
+                dispatch(initializePlayer(props.id, curindx, type))
+            }}>
+
                 <div className="SongTileCard">
                     <div className='SongTileImg'>
                         <img src={song.imgurl} alt="tileimg"></img>

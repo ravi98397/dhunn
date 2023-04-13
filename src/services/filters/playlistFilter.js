@@ -18,7 +18,7 @@ export const getAlbumById = (id, albums) => {
     let album = {}
     for(let i in albums){
         if(albums[i].id == id){
-            album = albums[i];
+            return albums[i];
         }
     }
     return album;
