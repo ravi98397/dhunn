@@ -1,3 +1,4 @@
+import "./AlbumPage.css";
 import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingCarousel from "../../components/LoadingCarousel/LoadingCarousel";
@@ -6,36 +7,33 @@ import { getNextAlbumPage } from "../../services/Helpers/getRequests";
 import SongCard from "../../components/Cards/Song/SongCard";
 import useAlbumLoad from "./hooks/useAlbumLoad";
 import { useState } from "react";
+import AlbumCard from "../../components/Cards/Album/AlbumCard";
 
 const AlbumPage = (props) => {
-    
-    //let albums = useSelector(state => state.Album.allAlbums);
-    let data = []
     let type = 'album'
 
     let dispatch = useDispatch();
-    const getNextPage = () => {
-        getNextAlbumPage();
-    }
-
-    let pageno = useSelector(state => state.Album.currentpage);
-    useAlbumLoad(dispatch, pageno+1)
-
+    const [pageno, setPageno] = useState(0);
+    
+    let albums = useSelector(state => state.Album.allAlbums);
+    console.log("albums :", albums)
     const {
-        albums,
         hasMore,
         loading,
         error
-    } = useAlbumLoad(dispatch, 0);
+    } = useAlbumLoad(dispatch, pageno+1);
+    
 
-    const observer = useRef();
+    const observer = useRef(0);
     const lastElementRef = useCallback(node => {
+        if (loading) return
         if(observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries => {
             if(entries[0].isIntersecting){
                 console.log("visible")
                 //setPageno(useSelector(state => state.Album.currentpage))
-                
+                setPageno(prev => prev + 1);
+                console.log(pageno)
             }
         })
 
@@ -52,13 +50,13 @@ const AlbumPage = (props) => {
                     if(albums.length == index + 1){
                         return (
                             <div ref={lastElementRef} key={index} className='CarouselItem'>
-                                <SongCard data={item} id={item.id} currindx={index} type={type}/>
+                                <AlbumCard data={item} id={item.id} currindx={index} type={type}/>
                             </div>
                         )
                     }else{
                         return(
                             <div key={index} className='CarouselItem'>
-                                <SongCard data={item} id={item.id} currindx={index} type={type}/>
+                                <AlbumCard data={item} id={item.id} currindx={index} type={type}/>
                             </div>
                         )
                     }

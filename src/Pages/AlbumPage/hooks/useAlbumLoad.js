@@ -3,7 +3,7 @@ import { type } from "os";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function useAlbumLoad(dispatch, page) {
+export default function useAlbumLoad(dispatch, pageno) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [albums, setAlbums] = useState([]);
@@ -16,15 +16,15 @@ export default function useAlbumLoad(dispatch, page) {
         axios({
             method: 'GET',
             url: `https://music.skillsprouts.in/api/v1/album/getAll`,
-            params: {pageno: page },
+            params: {pageno: pageno },
             cancleToken: new axios.CancelToken(c => cancel = c) 
         }).then(res => {
-            console.log("resulttttttttttttttttttttt= ", res)
+            console.log("resulttttttttttttttttttttt= ", res, pageno)
             dispatch({
                 type: "ADDALBUMPAGE",
                 payload: {
                     data: res.data,
-                    currentpage: page,
+                    currentpage: pageno,
                     hasMore: res.data.length > 0
                 }
             })
@@ -40,6 +40,6 @@ export default function useAlbumLoad(dispatch, page) {
             setError(true)
         })
         return () => cancel();
-    },[page])
+    },[pageno])
     return {loading, error, albums, hasMore};
 }

@@ -20,23 +20,21 @@ const SongCard = (props) => {
     
     return(
 
-		<div class="card">
-            <a 
-                href="#"
-                onClick={() => {
-                    dispatch(initializePlayer(props.id, props.currindx, type))
-            }}
-            >
-                <div class="overlayer">
-                    <AiOutlinePlayCircle className="fa-play-circle"/>
-			    </div>
-                {
-                    URL != null ? 
-                    <img src={URL} className="card-img-top" alt="image not found"/> :
-                    <img src={`${process.env.PUBLIC_URL}/SongArt.png`} className="card-img-top" alt="image not found"/> 
-                }
-            </a>
-			<div class="title">
+		<div 
+        className="songcard"
+        onClick={() => {
+            dispatch(initializePlayer(props.id, props.currindx, type))
+        }}
+        >
+            <div className="overlayer">
+                <AiOutlinePlayCircle className="fa-play-circle"/>
+            </div>
+            {
+                URL != null ? 
+                <img src={URL} className="card-img-top" alt="image not found"/> :
+                <img src={`${process.env.PUBLIC_URL}/SongArt.png`} className="card-img-top" alt="image not found"/> 
+            }
+			<div className="title">
 				<a href="#"
                     onClick={() => {
                         dispatch(initializePlayer(props.playlist_id, props.currindx))

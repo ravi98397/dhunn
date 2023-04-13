@@ -16,6 +16,7 @@ const albumReducer = (state = initialState, action) => {
                 allAlbums: state.allAlbums.concat([action.payload])
             };
         case 'ADDALBUMPAGE':
+            console.log("addalbumpage payload", action.payload)
             return {
                 ...state,
                 allAlbums: [...new Set(state.allAlbums.concat(action.payload.data))],

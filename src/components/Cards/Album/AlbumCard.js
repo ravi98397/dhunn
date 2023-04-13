@@ -1,8 +1,15 @@
-import "./ArtistCard.css";
+import "./AlbumCard.css";
 import { AiOutlinePlayCircle } from 'react-icons/ai';
-import context from "react-bootstrap/esm/AccordionContext";
+import { SiApplemusic } from 'react-icons/si';
+import { FaEdit } from 'react-icons/fa';
+import { useDispatch, useSelector } from "react-redux";
+import { setEdit } from "../../../actions/updateAction";
+import { initializePlayer } from "../../../services/Helpers/getRequests";
+import { Link } from "react-router-dom";
 
-const ArtistCard = (props) => {
+
+const AlbumCard = (props) => {
+    let albumid = props.id
     let data = props.data;
     let type = props.type;
     let title = data.name;
@@ -14,12 +21,10 @@ const ArtistCard = (props) => {
     //console.log(props.playlist_id, props.currindx); 
     
     return(
-
-		<div 
-        className="artistcard"
-        onClick={() => {
-            dispatch(initializePlayer(props.id, props.currindx, type))
-        }}
+        <>
+		<Link 
+        className="albumcard"
+        to={`/album/${albumid}`}
         >
             <div className="overlayer">
                 <AiOutlinePlayCircle className="fa-play-circle"/>
@@ -30,13 +35,11 @@ const ArtistCard = (props) => {
                 <img src={`${process.env.PUBLIC_URL}/SongArt.png`} className="card-img-top" alt="image not found"/> 
             }
 			<div className="title">
-				<a href="#"
-                    onClick={() => {
-                        dispatch(initializePlayer(props.playlist_id, props.currindx))
-                    }}>{title}</a>
+				<Link to={`/album/${albumid}`}>{title}</Link>
 			</div>
-		</div>	
+		</Link>
+        </>	
     );
 }
 
-export default ArtistCard;
+export default AlbumCard;
