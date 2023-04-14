@@ -18,7 +18,7 @@ const TrendingSongs = () => {
 
     return(
         <>
-            {JSON.stringify(songList) == '{}' ? <LoadingCarousel/> : <TileCardPage songs={songList} dispKey="song" />}
+            {JSON.stringify(songList) == '{}' ? <LoadingCarousel/> : <TileCardPage data={songList} dispKey="song" />}
         </>
     )
 }

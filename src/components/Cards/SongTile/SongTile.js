@@ -5,6 +5,7 @@ import { BiDotsVerticalRounded } from 'react-icons/bi';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { initializePlayer } from '../../../services/Helpers/getRequests';
 import { useDispatch } from 'react-redux';
+import { AiOutlinePlayCircle } from 'react-icons/ai';
 
 const SongTile = (props) => {
     let curindx = props.curindx;
@@ -12,16 +13,24 @@ const SongTile = (props) => {
     let type = props.type;
     let dispatch = useDispatch();
 
+    console.log(song.album)
+
     return (
             <div 
             className='SongTile'
             onClick={() => {
-                dispatch(initializePlayer(props.id, curindx, type))
+                dispatch(initializePlayer(song.album, curindx, type))
             }}>
-
+                <div className="overlayer">
+                    <AiOutlinePlayCircle size={30} className="fa-play-circle"/>
+                </div>
                 <div className="SongTileCard">
                     <div className='SongTileImg'>
-                        <img src={song.imgurl} alt="tileimg"></img>
+                    {
+                        song.imgurl != null ? 
+                        <img src={song.imgurl} className="tileimg" alt="images"/> :
+                        <img src={`${process.env.PUBLIC_URL}/SongArt.png`} className="tileimg" alt="image not found"/> 
+                    }       
                     </div>
                     <div className='SongTileDetails'>
                         <div className='SongDetails'>

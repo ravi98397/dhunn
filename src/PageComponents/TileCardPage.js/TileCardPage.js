@@ -14,9 +14,20 @@ const TileCardPage = (props) => {
 
     return(
         <>
-            <Details_info name={name} createdBy={createdBy} type={type}></Details_info>
+            <Details_info 
+                thumbnail={props.data.imgurl} 
+                name={name} 
+                createdBy={createdBy} 
+                type={type}
+                id={props.data.id}
+            ></Details_info>
             <SingleLineFilter/>
             <div className='AllSongTiles'>
+                <ul className='SongDetailsHeader'>
+                    <li>Track</li>
+                    <li>Artist</li>
+                    <li>Duration</li>
+                </ul>
                 {
                     songs.map(
                         (item, index) => {
