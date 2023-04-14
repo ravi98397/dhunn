@@ -15,7 +15,7 @@ const SearchBox = () => {
     console.log(data)
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/search?term=${searchText}`)
+        axios.get(`http://music.skillsprouts.in/search?term=${searchText}`)
         .then(res => setData(res.data))
     },[searchText])
 
