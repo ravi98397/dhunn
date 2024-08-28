@@ -13,8 +13,7 @@ const AlbumCard = (props) => {
     let data = props.data;
     let type = props.type;
     let title = data.name;
-    let URL = data.imgurl;
-    //console.log(URL)
+    let URL = data.songs.length > 0 ? data.songs[0].imgurl : null;
 
     let dispatch = useDispatch();
 

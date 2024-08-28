@@ -15,7 +15,7 @@ export default function useAlbumLoad(dispatch, pageno) {
         let cancel
         axios({
             method: 'GET',
-            url: `https://music.skillsprouts.in/api/v1/album/getAll`,
+            url: `http://localhost:8080/api/v1/album/getAll`,
             params: {pageno: pageno },
             cancleToken: new axios.CancelToken(c => cancel = c) 
         }).then(res => {

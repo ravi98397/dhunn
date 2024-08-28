@@ -124,7 +124,11 @@ const MusicPlayer = () => {
             </div>
             <div className='PlayerComponents'>
                 <div className='FooterSongDetail'>
-                    <img src="SongArt.png" alt="song-img" className='FooterSongImg' />
+                    {
+                      music.imgurl == null ?
+                      <img src="SongArt.png" alt="song-img-notfound" className='FooterSongImg' /> :
+                      <img src="music.imgurl" alt="song-img" className='FooterSongImg' />
+                    }
                     <audio autoPlay ref={songref}  preload="none" 
                     onPlay={()=>{setDuration(songref.current.duration.toFixed(2));}}
                     onTimeUpdate={updateProgress}
