@@ -116,7 +116,6 @@ const MusicPlayer = () => {
 
     return(
         <>
-        <ContextMenu clientX={conx} clientY={cony}/>
         <header className="FooterMusicPlayer">
             <div className='FooterSongProgressBar'>
                 <input type="range" ref={progressref} className='FooterSongRange' name="progress" min="0" max={duration} value={timer} 
@@ -125,9 +124,9 @@ const MusicPlayer = () => {
             <div className='PlayerComponents'>
                 <div className='FooterSongDetail'>
                     {
-                      music.imgurl == null ?
+                      music.imgurl === null || music.imgurl === undefined ?
                       <img src="SongArt.png" alt="song-img-notfound" className='FooterSongImg' /> :
-                      <img src="music.imgurl" alt="song-img" className='FooterSongImg' />
+                      <img src={music.imgurl} alt="song-img" className='FooterSongImg' />
                     }
                     <audio autoPlay ref={songref}  preload="none" 
                     onPlay={()=>{setDuration(songref.current.duration.toFixed(2));}}
@@ -146,8 +145,7 @@ const MusicPlayer = () => {
                     <div className='FooterCollapseMenu'>
                         
                         <button className='noStyleButton'>
-                            
-                            <HiDotsVertical size={25} onClick={updateContextMenuLoc}/>
+                            <ContextMenu/>
                         </button>
                     </div>   
                 </div>
@@ -196,6 +194,8 @@ const MusicPlayer = () => {
                                 </button>
                             }
                         </div>
+                    </div>
+                    <div className='ContextMenuButoon'>
                     </div>
                 </div>
             </div>

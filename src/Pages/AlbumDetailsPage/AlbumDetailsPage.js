@@ -26,7 +26,7 @@ const AlbumDetailsPage = () => {
 
     return(
         <>
-            {JSON.stringify(album) == '{}' ? <LoadingCarousel/> : <TileCardPage data={album} type="album" dispKey="album" />}
+            {JSON.stringify(album) == '{}' ? <LoadingCarousel/> : <TileCardPage data={album} type="album" dispKey="album" groupid={album.id} />}
         </>
     )
 }

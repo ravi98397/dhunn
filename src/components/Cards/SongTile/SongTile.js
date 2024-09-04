@@ -11,15 +11,16 @@ const SongTile = (props) => {
     let curindx = props.curindx;
     let song = props.song;
     let type = props.type;
+    let groupid = props.groupid;
     let dispatch = useDispatch();
 
-    console.log(song.album)
+//    console.log("song tile = ", props.type, ", ", props.id, ", ", props.group.id )
 
     return (
             <div 
             className='SongTile'
             onClick={() => {
-                dispatch(initializePlayer(song.album, curindx, type))
+                dispatch(initializePlayer(groupid, curindx, type))
             }}>
                 <div className="overlayer">
                     <AiOutlinePlayCircle size={30} className="fa-play-circle"/>

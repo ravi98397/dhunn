@@ -11,7 +11,9 @@ const TileCardPage = (props) => {
 
     let name = props.data.name;
     let createdBy = "dhunn";
-
+      
+    console.log(props.data, " TileCardPage")
+    
     return(
         <>
             <Details_info 
@@ -34,9 +36,10 @@ const TileCardPage = (props) => {
                             return(<SongTile
                                     id = {item.id} 
                                     key = {index}
-                                    type= {props.type}
+                                    type= {type}
                                     curindx={index} 
-                                    song={item}/>)
+                                    song={item}
+                                    groupid={props.groupid}/>)
                                 }
                             )
                 }

@@ -12,13 +12,17 @@ const TrendingSongs = () => {
     let playlists = useSelector(state => state.Playlist.playlists);
     let songList = getPlaylistByUseridPlaylistName(7, "Trending_Songs", playlists);
 
+    console.log(songList);
+
     useEffect(() => {
         dispatch(fetchTrendingSong('ADDPLAYLIST'))
     }, [])
 
     return(
         <>
-            {JSON.stringify(songList) == '{}' ? <LoadingCarousel/> : <TileCardPage data={songList} dispKey="song" />}
+            {JSON.stringify(songList) === '{}' ? 
+              <LoadingCarousel/> : 
+              <TileCardPage data={songList} dispKey="song" type="playlist" groupid={songList.id} />}
         </>
     )
 }
