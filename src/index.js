@@ -8,10 +8,20 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-
 import { applyMiddleware, createStore } from 'redux';
+import axios from 'axios';
 
 const myStore = createStore(allReducer, applyMiddleware(thunk));
+
+axios.interceptors.request.use(request => {
+  request.auth = {
+    username: "admin",
+    password: "1234"
+  }
+  return request;
+});
+
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -33,19 +33,19 @@
   width: fit-content;
 }
 .base-container .content .form .form-group label {
-  font-size: 20px;
+  font-size: 10px;
 }
 .base-container .content .form .form-group input {
   margin-top: 6px;
   min-width: 18em;
-  height: 37px;
+  height: 27px;
   padding: 0px 10px;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   background-color: #f3f3f3;
   border: 0;
   border-radius: 4px;
-  margin-bottom: 31px;
+  margin-bottom: 11px;
   transition: all 250ms ease-in-out;
 }
 .base-container .content .form .form-group input:focus {
@@ -53,7 +53,7 @@
   box-shadow: 0px 0px 12px 0.8px #3474db b2;
 }
 .base-container .footer {
-  margin-top: 3em;
+  margin-top: 1em;
 }
 
 .form-close-button{
